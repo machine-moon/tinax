@@ -28,7 +28,7 @@ To release the branch you just pushed to `master`, tag its current HEAD after CI
    ```
 
 3. Watch the `Release` workflow run. It fails closed: if the tag doesn't match `pyproject.toml`'s version, or if tests, lint, type checking, `zensical build`, `twine check`, or the inert-import wheel smoke test fail, nothing is published.
-4. Once it succeeds, verify from a clean environment:
+4. Once it succeeds, verify from a clean environment (any supported Python, 3.12–3.14):
 
    ```bash
    uv venv --python 3.14 /tmp/tinax-pypi-check

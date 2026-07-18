@@ -1,9 +1,9 @@
 [project]
 name = "tinax"
-version = "0.1.0"
+version = "0.1.1"
 description = "Reliable productivity primitives for the JAX ecosystem"
 readme = "README.md"
-requires-python = ">=3.14"
+requires-python = ">=3.12"
 license = "Apache-2.0"
 license-files = ["LICENSE", "NOTICE", "COPYING"]
 authors = [{ name = "Tarek Ibrahim" }]
@@ -11,6 +11,8 @@ maintainers = [{ name = "Tarek Ibrahim" }]
 keywords = ["chex", "flax", "grain", "jax", "orbax", "optax", "safetensors"]
 classifiers = [
     "Development Status :: 4 - Beta",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
     "Programming Language :: Python :: 3.14",
 ]
 dependencies = [
@@ -29,7 +31,7 @@ Homepage = "https://tinax.org/"
 Documentation = "https://docs.tinax.org/"
 Source = "https://github.com/machine-moon/tinax"
 Issues = "https://github.com/machine-moon/tinax/issues"
-Changelog = "https://github.com/machine-moon/tinax/blob/main/CHANGES.md"
+Changelog = "https://github.com/machine-moon/tinax/blob/main/CHANGES"
 Security = "https://github.com/machine-moon/tinax/security/policy"
 
 [build-system]
@@ -48,7 +50,7 @@ include = [
     ".gitignore",
     "AGENTS.md",
     "AUTHORS",
-    "CHANGES.md",
+    "CHANGES",
     "COPYING",
     "LICENSE",
     "NOTICE",
@@ -78,7 +80,7 @@ tpu = ["jax[tpu]==0.11.0"]
 
 [tool.ruff]
 line-length = 120
-target-version = "py314"
+target-version = "py312"
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "N", "W"]

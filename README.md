@@ -6,11 +6,7 @@ It provides stable policies for array and RNG ownership, bounded diagnostics, NN
 
 ## Requirements
 
-- CPython 3.14 with the standard GIL-enabled build
-- glibc Linux x86-64/AArch64, Windows x86-64, or Apple Silicon macOS
-- The exact JAX ecosystem versions declared by Tinax
-
-Grain 0.2.18 does not provide a `cp314t` wheel, so free-threaded CPython is not supported.
+- Python 3.12, 3.13, or 3.14
 
 ## Install
 
@@ -45,7 +41,7 @@ Importing `tinax` alone is inert. Import the domain that owns the behavior you n
 ## Documentation
 
 - [Documentation](https://tinax.org/)
-- [Changelog](CHANGES.md)
+- [Changelog](CHANGES)
 - [Contributing](docs/contributing.md)
 - [Security policy](docs/security.md)
 - [Release guide](docs/releases.md)

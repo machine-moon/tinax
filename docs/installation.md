@@ -1,6 +1,6 @@
 # Installation
 
-Tinax supports CPython 3.14 with the standard GIL-enabled build. Free-threaded CPython is unsupported because Grain 0.2.18 does not publish a `cp314t` wheel.
+Tinax supports Python 3.12, 3.13, and 3.14.
 
 Supported platforms are glibc Linux x86-64/AArch64, Windows x86-64, and Apple Silicon macOS. Tinax pins the JAX ecosystem versions it tests.
 

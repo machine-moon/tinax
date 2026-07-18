@@ -30,9 +30,12 @@ jobs:
       - run: uv run zensical build --strict
       - run: uv build
       - run: uv run twine check dist/*
-      - run: uv venv --python 3.14 /tmp/tinax-release-check
-      - run: uv pip install --python /tmp/tinax-release-check/bin/python dist/*.whl
-      - run: /tmp/tinax-release-check/bin/python -I -c "import sys, tinax; assert not any(name == 'jax' or name.startswith('jax.') for name in sys.modules)"
+      - run: |
+          for py in 3.12 3.13 3.14; do
+            uv venv --python "$py" "/tmp/tinax-release-check-$py"
+            uv pip install --python "/tmp/tinax-release-check-$py/bin/python" dist/*.whl
+            "/tmp/tinax-release-check-$py/bin/python" -I -c "import sys, tinax; assert not any(name == 'jax' or name.startswith('jax.') for name in sys.modules)"
+          done
       - uses: actions/upload-artifact@v4
         with:
           name: tinax-dist
