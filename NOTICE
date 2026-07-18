@@ -1,0 +1,43 @@
+Tinax
+Copyright (c) 2026 The Tinax Project Authors.
+
+This product includes contributions from:
+  Tarek Ibrahim <tareki@pulsarxtech.com> <t1br4h1m@gmail.com>
+
+Tinax is licensed under the Apache License, Version 2.0. See LICENSE.
+
+Tinax depends on, but does not bundle or redistribute, the following
+third-party libraries. Each is installed separately by end users through
+their own PyPI distribution and retains its own license and copyright:
+
+  chex (https://github.com/google-deepmind/chex)
+  Copyright Google DeepMind
+  Licensed under the Apache License, Version 2.0.
+
+  flax (https://github.com/google/flax)
+  Copyright Google LLC
+  Licensed under the Apache License, Version 2.0.
+
+  grain (https://github.com/google/grain)
+  Copyright Google LLC
+  Licensed under the Apache License, Version 2.0.
+
+  jax (https://github.com/jax-ml/jax)
+  Copyright Google LLC
+  Licensed under the Apache License, Version 2.0.
+
+  numpy (https://numpy.org/)
+  Copyright (c) 2005-2025, NumPy Developers.
+  Licensed under the BSD 3-Clause License.
+
+  optax (https://github.com/google-deepmind/optax)
+  Copyright Google DeepMind
+  Licensed under the Apache License, Version 2.0.
+
+  orbax-checkpoint (https://github.com/google/orbax)
+  Copyright Google LLC
+  Licensed under the Apache License, Version 2.0.
+
+  safetensors (https://github.com/huggingface/safetensors)
+  Copyright Hugging Face
+  Licensed under the Apache License, Version 2.0.

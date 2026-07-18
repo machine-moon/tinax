@@ -1,0 +1,94 @@
+[project]
+name = "tinax"
+version = "0.1.0"
+description = "Reliable productivity primitives for the JAX ecosystem"
+readme = "README.md"
+requires-python = ">=3.14"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE", "COPYING"]
+authors = [{ name = "Tarek Ibrahim" }]
+maintainers = [{ name = "Tarek Ibrahim" }]
+keywords = ["chex", "flax", "grain", "jax", "orbax", "optax", "safetensors"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python :: 3.14",
+]
+dependencies = [
+    "chex==0.1.92",
+    "flax==0.12.7",
+    "grain==0.2.18",
+    "jax==0.11.0",
+    "numpy==2.5.1",
+    "optax==0.2.8",
+    "orbax-checkpoint==0.12.1",
+    "safetensors==0.8.0",
+]
+
+[project.urls]
+Homepage = "https://tinax.org/"
+Documentation = "https://docs.tinax.org/"
+Source = "https://github.com/machine-moon/tinax"
+Issues = "https://github.com/machine-moon/tinax/issues"
+Changelog = "https://github.com/machine-moon/tinax/blob/main/CHANGES.md"
+Security = "https://github.com/machine-moon/tinax/security/policy"
+
+[build-system]
+requires = ["hatchling==1.31.0"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build]
+ignore-vcs = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["tinax"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    ".python-version",
+    ".gitignore",
+    "AGENTS.md",
+    "AUTHORS",
+    "CHANGES.md",
+    "COPYING",
+    "LICENSE",
+    "NOTICE",
+    "docs",
+    "examples",
+    "mkdocs.yml",
+    "README.md",
+    "tinax",
+    "pyproject.toml",
+    "tests",
+    "uv.lock",
+]
+
+[dependency-groups]
+dev = [
+    "mkdocstrings[python]==1.0.6",
+    "pytest==9.1.1",
+    "ruff==0.15.22",
+    "twine==6.2.0",
+    "ty==0.0.60",
+    "zensical==0.0.51",
+]
+
+[project.optional-dependencies]
+gpu = ["jax[cuda12]==0.11.0"]
+tpu = ["jax[tpu]==0.11.0"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py314"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W"]
+
+[tool.pytest.ini_options]
+markers = [
+    "accelerator: requires GPU or TPU hardware",
+    "multihost: launches multiple JAX controller processes",
+]
+
+[tool.ty.src]
+include = ["tinax", "tests", "examples"]
+exclude = []

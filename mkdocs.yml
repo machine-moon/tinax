@@ -1,0 +1,95 @@
+site_name: Tinax
+site_description: Reliable productivity primitives for the JAX ecosystem
+site_url: https://tinax.org/
+repo_url: https://github.com/machine-moon/tinax
+repo_name: machine-moon/tinax
+copyright: Copyright 2026 Tinax contributors
+
+extra:
+  generator: false
+
+watch:
+  - tinax
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      toggle:
+        icon: lucide/moon
+        name: Switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: lucide/sun
+        name: Switch to light mode
+  features:
+    - content.code.copy
+    - navigation.footer
+    - navigation.sections
+    - navigation.tabs
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - toc.follow
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+plugins:
+  - search
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          paths: [.]
+          options:
+            docstring_style: google
+            docstring_section_style: table
+            heading_level: 2
+            show_root_heading: true
+            show_root_full_path: false
+            show_symbol_type_heading: true
+            show_symbol_type_toc: true
+            separate_signature: true
+            show_signature_annotations: true
+            signature_crossrefs: true
+            merge_init_into_class: true
+            show_source: false
+            members_order: source
+            filters: ["!^_"]
+
+nav:
+  - Overview: index.md
+  - Installation: installation.md
+  - Design Principles: design.md
+  - Public API:
+      - Arrays: api/arrays.md
+      - Grain: api/grain.md
+      - Randomness: api/randomness.md
+      - Diagnostics: api/diagnostics.md
+      - Flax NNX: api/nnx.md
+      - Standard Library: api/stdlib.md
+      - Checkpointing: api/checkpointing.md
+      - Sharding: api/sharding.md
+      - Weights: api/weights.md
+  - Policy:
+      - Contributing: contributing.md
+      - Versioning: versioning.md
+      - Releases: releases.md
+      - Security: security.md
