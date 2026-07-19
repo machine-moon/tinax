@@ -1,1 +1,1 @@
-"""Tested standard-library application-boundary recipes."""
+"""Runnable tinax.stdlib recipes."""

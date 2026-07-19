@@ -2,6 +2,33 @@
 
 Changes are listed most recent first. Security-related entries appear first in their release section and use the SECURITY: prefix.
 
+v0.2.0 (2026-07-19)
+--------------------
+  *) Rename tinax modules: arrays, grain, randomness, diagnostics,
+     nnx, sharding TO array, data, random, debug, nn, parallel.
+    [Tarek Ibrahim <tareki pulsarxtech.com> <t1br4h1m gmail.com>]
+
+  *) Add jit module (bounded_jit, batched_jit): trace-budgeted
+     compilation and vmap batching with an optional mesh.
+    [Tarek Ibrahim <tareki pulsarxtech.com> <t1br4h1m gmail.com>]
+
+  *) Add grad module (value_and_grad, jacobian, hessian) with shared
+     argnums validation.
+    [Tarek Ibrahim <tareki pulsarxtech.com> <t1br4h1m gmail.com>]
+
+  *) Add device module: pre-JAX environment policy, runtime info
+     and optional gpu, tpu detection.
+    [Tarek Ibrahim <tareki pulsarxtech.com> <t1br4h1m gmail.com>]
+
+  *) Add parallel.shard_mapped, data read/write interface,
+     split helpers, array ops, debug.visualize_array_sharding, and
+     weights msgpack.
+    [Tarek Ibrahim <tareki pulsarxtech.com> <t1br4h1m gmail.com>]
+
+  *) Replace ad hoc Chex, JAX, Flax, Optax, Orbax examples with tested 
+     per-module recipes under examples, .
+    [Tarek Ibrahim <tareki pulsarxtech.com> <t1br4h1m gmail.com>]
+
 v0.1.1 (2026-07-18)
 --------------------
   *) Lower the minimum supported Python to 3.12 and up to 3.14.

@@ -2,6 +2,8 @@
 
 from ._manifest import TensorManifest as TensorManifest
 from ._manifest import TensorRule as TensorRule
+from ._msgpack import load_msgpack as load_msgpack
+from ._msgpack import save_msgpack as save_msgpack
 from ._safetensors import LoadedSafetensors as LoadedSafetensors
 from ._safetensors import SafetensorsInfo as SafetensorsInfo
 from ._safetensors import TensorInfo as TensorInfo

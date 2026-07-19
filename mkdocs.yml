@@ -79,15 +79,18 @@ nav:
   - Installation: installation.md
   - Design Principles: design.md
   - Public API:
-      - Arrays: api/arrays.md
-      - Grain: api/grain.md
-      - Randomness: api/randomness.md
-      - Diagnostics: api/diagnostics.md
-      - Flax NNX: api/nnx.md
+      - Arrays: api/array.md
+      - Jit: api/jit.md
+      - Grad: api/grad.md
+      - Data: api/data.md
+      - Random: api/random.md
+      - Debug: api/debug.md
+      - Flax NN: api/nn.md
       - Standard Library: api/stdlib.md
       - Checkpointing: api/checkpointing.md
-      - Sharding: api/sharding.md
+      - Parallel: api/parallel.md
       - Weights: api/weights.md
+      - Device: api/device.md
   - Policy:
       - Contributing: contributing.md
       - Versioning: versioning.md

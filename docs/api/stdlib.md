@@ -4,7 +4,7 @@
 
 `parse_config` passes a shallow read-only mapping to the factory; mutable values produced by custom argparse actions remain caller-owned. Its `argv` excludes the executable name, so an Abseil entry point passes `argv[1:]`.
 
-Tinax does not provide an Abseil domain. Grain executables still enter through `absl.app.run` because that upstream worker lifecycle requires parsed Abseil flags.
+Tinax does not provide an Abseil module. Grain executables still enter through `absl.app.run` because that upstream worker lifecycle requires parsed Abseil flags.
 
 ```python
 import logging

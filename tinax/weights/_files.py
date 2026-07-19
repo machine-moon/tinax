@@ -11,9 +11,7 @@ from tempfile import mkstemp
 def atomic_write_path(destination: Path, *, overwrite: bool) -> Iterator[Path]:
     """Yield a sibling temporary path and atomically publish it on success."""
     destination = _validate_destination(destination, overwrite=overwrite)
-    descriptor, temporary_name = mkstemp(
-        prefix=f".{destination.name}.", suffix=".tmp", dir=destination.parent
-    )
+    descriptor, temporary_name = mkstemp(prefix=f".{destination.name}.", suffix=".tmp", dir=destination.parent)
     os.close(descriptor)
     temporary = Path(temporary_name)
     try:

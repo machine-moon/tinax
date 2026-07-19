@@ -14,6 +14,10 @@ See the [Safetensors Interchange](../design.md#safetensors-interchange) guide fo
 
 ::: tinax.weights.save_safetensors
 
+::: tinax.weights.save_msgpack
+
+::: tinax.weights.load_msgpack
+
 ::: tinax.weights.SafetensorsInfo
 
 ::: tinax.weights.TensorInfo

@@ -1,6 +1,6 @@
 # Contributing to Tinax
 
-Tinax values small, explicit changes with focused tests. Read `AGENTS.md` in the repository root for the package boundaries and design rules.
+Tinax values small, explicit changes with focused tests.
 
 ## Development
 

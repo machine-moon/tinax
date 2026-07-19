@@ -83,9 +83,7 @@ class TensorManifest:
             sources.add(rule.source_name)
             destinations[rule.destination_name] = rule.source_name
 
-    def apply(
-        self, tensors: Mapping[str, npt.NDArray[np.generic]]
-    ) -> dict[str, npt.NDArray[np.generic]]:
+    def apply(self, tensors: Mapping[str, npt.NDArray[np.generic]]) -> dict[str, npt.NDArray[np.generic]]:
         """Transform tensors after requiring exact source-name coverage.
 
         Args:

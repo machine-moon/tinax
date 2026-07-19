@@ -5,8 +5,8 @@ import numpy as np
 import pytest
 from jax.experimental import multihost_utils
 
-from tinax.arrays import from_numpy, to_numpy
-from tinax.sharding import from_process_local_data, layout, make_mesh
+from tinax.array import from_numpy, to_numpy
+from tinax.parallel import from_process_local_data, layout, make_mesh
 
 
 @pytest.mark.accelerator

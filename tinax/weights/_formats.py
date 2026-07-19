@@ -10,16 +10,7 @@ def dtype_bits(dtype: str) -> int:
             return 4
         case "F6_E2M3" | "F6_E3M2":
             return 6
-        case (
-            "BOOL"
-            | "U8"
-            | "I8"
-            | "F8_E5M2"
-            | "F8_E4M3"
-            | "F8_E8M0"
-            | "F8_E4M3FNUZ"
-            | "F8_E5M2FNUZ"
-        ):
+        case "BOOL" | "U8" | "I8" | "F8_E5M2" | "F8_E4M3" | "F8_E8M0" | "F8_E4M3FNUZ" | "F8_E5M2FNUZ":
             return 8
         case "I16" | "U16" | "F16" | "BF16":
             return 16

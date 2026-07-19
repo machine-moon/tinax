@@ -38,9 +38,7 @@ class _SafeOpen(Protocol):
     def get_tensor(self, name: str) -> object: ...
 
 
-def inspect_safetensors(
-    path: str | os.PathLike[str], *, max_metadata_bytes: int = 0
-) -> SafetensorsInfo:
+def inspect_safetensors(path: str | os.PathLike[str], *, max_metadata_bytes: int = 0) -> SafetensorsInfo:
     """Inspect tensor keys, shapes, dtypes, sizes, and bounded metadata without loading payloads.
 
     Args:
@@ -95,9 +93,7 @@ def load_safetensors(
             raise ValueError(f"requested tensors are not present in the file: {missing}")
         required_bytes = sum(info.tensors[name].nbytes for name in selected_names)
         if required_bytes > tensor_budget:
-            raise ValueError(
-                f"selected tensors require {required_bytes} bytes, exceeding max_bytes={tensor_budget}"
-            )
+            raise ValueError(f"selected tensors require {required_bytes} bytes, exceeding max_bytes={tensor_budget}")
 
         expected_dtypes: dict[str, np.dtype[np.generic]] = {}
         for name in selected_names:
@@ -117,13 +113,9 @@ def load_safetensors(
                 raise TypeError(f"Safetensors returned a non-NumPy value for tensor {name!r}")
             expected = info.tensors[name]
             if tuple(tensor.shape) != expected.shape:
-                raise ValueError(
-                    f"loaded tensor {name!r} has shape {tuple(tensor.shape)}, expected {expected.shape}"
-                )
+                raise ValueError(f"loaded tensor {name!r} has shape {tuple(tensor.shape)}, expected {expected.shape}")
             if tensor.dtype != expected_dtypes[name]:
-                raise TypeError(
-                    f"loaded tensor {name!r} has dtype {tensor.dtype}, expected {expected_dtypes[name]}"
-                )
+                raise TypeError(f"loaded tensor {name!r} has dtype {tensor.dtype}, expected {expected_dtypes[name]}")
             loaded[name] = tensor
     return LoadedSafetensors(loaded, info)
 
@@ -148,8 +140,9 @@ def save_safetensors(
     Raises:
         TypeError: If ``overwrite`` is not a bool, ``max_metadata_bytes`` is not an integer,
             or ``tensors`` or ``metadata`` have invalid types.
-        ValueError: If ``max_metadata_bytes`` is negative, the metadata exceeds the budget, a
-            tensor is invalid, or the destination exists and ``overwrite`` is ``False``.
+        ValueError: If ``max_metadata_bytes`` is negative, the metadata exceeds the budget, or
+            a tensor is invalid.
+        FileExistsError: If the destination exists and ``overwrite`` is ``False``.
     """
     if not isinstance(overwrite, bool):
         raise TypeError("overwrite must be a bool")

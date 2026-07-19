@@ -8,7 +8,7 @@ Tinax is currently pre-1.0. Public imports and documented behavior are treated c
 
 Patch releases fix defects without intentionally changing documented public behavior. Minor releases may add stable APIs, deprecate APIs, or make incompatible corrections. Major releases establish stronger compatibility guarantees.
 
-The compatibility surface includes stable domain imports, documented function signatures, checkpoint formats, and Safetensors manifest semantics. Modules under `examples/` are tested recipes and have no stable API guarantee.
+The compatibility surface includes stable module imports, documented function signatures, checkpoint formats, and Safetensors manifest semantics. Modules under `examples/` are tested recipes and have no stable API guarantee.
 
 ## Release Tags
 

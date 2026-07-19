@@ -57,9 +57,7 @@ def load_checkpointables(
     return ocp.load_checkpointables(_validated_checkpoint_path(path), abstract_values)
 
 
-def _validated_checkpointable_mapping(
-    checkpointables: object, *, argument: str, reject_none: bool
-) -> dict[str, Any]:
+def _validated_checkpointable_mapping(checkpointables: object, *, argument: str, reject_none: bool) -> dict[str, Any]:
     if not isinstance(checkpointables, Mapping):
         raise TypeError(f"{argument} must be a mapping")
     if not checkpointables:

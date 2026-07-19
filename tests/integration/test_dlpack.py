@@ -6,7 +6,7 @@ import numpy as np
 import pytest
 from jax.sharding import Mesh, NamedSharding, PartitionSpec, SingleDeviceSharding
 
-from tinax.arrays import from_dlpack, to_numpy
+from tinax.array import from_dlpack, to_numpy
 
 
 @pytest.mark.parametrize("copy", [None, False, True])

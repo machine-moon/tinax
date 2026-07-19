@@ -140,9 +140,7 @@ def load_training_checkpoint(
     if "step" not in auxiliary or "state" not in auxiliary:
         raise ValueError("the auxiliary checkpointable is missing step or state")
     _validate_step(auxiliary["step"])
-    restored_iterator = load_checkpointables(path, {resolved_names.iterator: iterator})[
-        resolved_names.iterator
-    ]
+    restored_iterator = load_checkpointables(path, {resolved_names.iterator: iterator})[resolved_names.iterator]
     return TrainingCheckpoint(
         step=auxiliary["step"],
         model=restored[resolved_names.model],

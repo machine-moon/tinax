@@ -1,41 +1,41 @@
-"""Parse immutable application config and log without touching global handlers."""
+"""Parse immutable CLI config and log without touching global handlers via tinax.stdlib."""
 
 import argparse
 import logging
-from collections.abc import Mapping, Sequence
+import sys
+from collections.abc import Mapping
 from dataclasses import dataclass
-from typing import TextIO
 
 from tinax.stdlib import make_stream_logger, parse_config
 
 
 @dataclass(frozen=True, slots=True)
 class RunConfig:
-    """Configuration produced from explicit command arguments."""
+    """Immutable configuration produced from explicit command arguments."""
 
     steps: int
     label: str
 
 
 def _config(values: Mapping[str, object]) -> RunConfig:
-    steps = values["steps"]
-    label = values["label"]
+    steps, label = values["steps"], values["label"]
     if not isinstance(steps, int) or isinstance(steps, bool) or not isinstance(label, str):
         raise TypeError("parsed steps and label have unexpected types")
     return RunConfig(steps=steps, label=label)
 
 
-def run(argv: Sequence[str], stream: TextIO) -> RunConfig:
-    """Parse explicit arguments, emit one isolated log record, and return immutable config."""
+def main() -> None:
+    """Parse a fixed argument list into config, then emit one isolated log record."""
     parser = argparse.ArgumentParser(prog="tinax-stdlib-example")
     parser.add_argument("--steps", type=int, required=True)
     parser.add_argument("--label", required=True)
-    config = parse_config(parser, argv, _config)
+    config = parse_config(parser, ["--steps", "3", "--label", "warmup"], _config)
+
     logger = make_stream_logger(
-        "tinax.example",
-        level=logging.INFO,
-        stream=stream,
-        format_string="%(levelname)s %(message)s",
+        "tinax.example", level=logging.INFO, stream=sys.stdout, format_string="%(levelname)s %(message)s"
     )
     logger.info("label=%s steps=%d", config.label, config.steps)
-    return config
+
+
+if __name__ == "__main__":
+    main()

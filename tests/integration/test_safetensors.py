@@ -188,9 +188,7 @@ def test_save_rejects_symlink_destinations(tmp_path: Path) -> None:
     assert target.read_bytes() == b"unchanged"
 
 
-def test_atomic_save_failure_preserves_existing_destination(
-    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
-) -> None:
+def test_atomic_save_failure_preserves_existing_destination(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     destination = tmp_path / "weights"
     save_safetensors(destination, {"x": np.array([1], dtype=np.int32)}, overwrite=False)
     original = destination.read_bytes()

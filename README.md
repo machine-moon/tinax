@@ -2,7 +2,7 @@
 
 Tinax is a small, typed library of explicit productivity primitives for JAX, Flax NNX, Optax, Orbax, Grain, Chex, and Safetensors workflows.
 
-It provides stable policies for array and RNG ownership, bounded diagnostics, NNX graph copies, explicit stdlib application boundaries, deterministic input pipelines, complete checkpoints, sharding, and weight interchange. Tested ecosystem recipes live under `examples/` without stable API guarantees.
+It provides stable policies for array and RNG ownership, trace-budgeted compilation and batching, hardened autodiff, bounded debug observation, NNX graph copies, explicit stdlib application boundaries, deterministic input pipelines, complete checkpoints, multi-device parallelism, and weight interchange. Tested ecosystem recipes live under `examples/` without stable API guarantees.
 
 ## Requirements
 
@@ -28,7 +28,7 @@ See the [installation guide](https://tinax.org/installation/) for platform and a
 ```python
 import numpy as np
 
-from tinax.arrays import from_numpy, inspect_array, to_numpy
+from tinax.array import from_numpy, inspect_array, to_numpy
 
 host = np.arange(8, dtype=np.float32)
 device = from_numpy(host, copy=True)
@@ -36,7 +36,7 @@ info = inspect_array(device)
 round_trip = to_numpy(device, writable=False)
 ```
 
-Importing `tinax` alone is inert. Import the domain that owns the behavior you need.
+Importing `tinax` alone is inert. Import the module that owns the behavior you need.
 
 ## Documentation
 
